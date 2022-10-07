@@ -24,6 +24,8 @@
         var textSpeed = 2;
         var textColor = "#FFFFFF"
         var textSize = "8vw"
+        
+        var repeatFactor = 14;
 
         var getParam = function(key) {
             var _parammap = {};
@@ -54,6 +56,7 @@
 
         if (getParam("size")) {
             textSize = getParam("size") + "vw";
+            repeatFactor = 110 / getParam("size");
         }
 
         textBox.style.fontSize = textSize;
@@ -64,8 +67,6 @@
         animate();
 
         function setTextTo(str) {
-
-            var repeatFactor = 110 / getParam("size");
 
             textRepeat = Math.ceil(repeatFactor / str.length) + 1;
             var string = "";
